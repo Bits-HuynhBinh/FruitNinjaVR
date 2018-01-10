@@ -10,18 +10,22 @@ public class LevelManager : MonoBehaviour
     private List<Level> levels = new List<Level>();
 
 
-    void Start()
+    void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
         {
             Instance = this;
         }
-        else if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
 
         InitLevels();
+    }
+
+    void Start()
+    {        
     }
 
 

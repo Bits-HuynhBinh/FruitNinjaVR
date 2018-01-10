@@ -11,6 +11,20 @@ public class SpawnerManager : MonoBehaviour
     public float minForceY;
     public float maxForceY;
 
+    public static SpawnerManager Instance;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
 
     public void Spawn()
     {
@@ -21,6 +35,9 @@ public class SpawnerManager : MonoBehaviour
         // get random spawn point 
         random = Random.Range(0, spawnPoints.Count);
         SpawnPoint spawnPoint = spawnPoints[random];
+
+        // play the particle system when spawning the fruit
+        ParticleManager.Instance.PlayParticleOn(spawnPoint.transform.position, ParticleManager.Instance.parSpawningFruit);
 
         // spawn the fruit at the spawn point position
         GameObject obj = Instantiate(prefabToSpawn, spawnPoint.gameObject.transform.position, Quaternion.identity);

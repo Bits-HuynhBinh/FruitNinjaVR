@@ -24,7 +24,7 @@ public class FruitController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // if Tag = floor/plane, then play particle system on the floor to show that the fruit is destroy
-        if (other.gameObject.CompareTag("FLOOR"))
+        if (other.gameObject.CompareTag(Tags.tagFloor))
         {
             // minus 1 point
             GameManager.Instance.decreaseLife();
@@ -37,7 +37,7 @@ public class FruitController : MonoBehaviour
         }
 
         // if Tag = sword, then replace the full fruit with haft fruit, play particle system for haft fruit
-        if (other.gameObject.CompareTag("SWORD"))
+        if (other.gameObject.CompareTag(Tags.tagSword))
         {
             // play particle system
             ParticleManager.Instance.PlayParticleOn(transform.position, ParticleManager.Instance.parSwordHitFruit);
@@ -53,7 +53,7 @@ public class FruitController : MonoBehaviour
         }
 
         // if fruit collide with player, it is an error, destroy the fruit, dont count it
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(Tags.tagPlayer))
         {
             Destroy(gameObject);
         }

@@ -15,21 +15,25 @@ public class SoundManager : MonoBehaviour
     public AudioClip clipBoomBangSound;
     public AudioClip clipFruitFallDownTheFloorSound;
     public AudioClip clipBoomFallDownTheFloorSound;
+    public AudioClip clipHalfFruitFallDownTheFloorSound;
 
     private AudioSource audioSource;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     // Use this for initialization
     void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
-
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -41,7 +45,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySoundOneShotOnSoundManager(AudioClip clip)
     {
-        if(audioSource == null)
+        if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
         }

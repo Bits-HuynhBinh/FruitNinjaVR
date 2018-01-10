@@ -10,25 +10,25 @@ public class GameManager : MonoBehaviour
     private int userLife;
     private Level currentLevel = null;
 
-    private enum BoardMode { BoardWin, BoardLoose};
+    private enum BoardMode { BoardWin, BoardLoose };
 
     void Awake()
     {
-        SetupFirstLevel();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
 
     // Use this for initialization
     void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
+        SetupFirstLevel();
     }
 
     // Update is called once per frame
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
     private void ShowBoard(BoardMode mode)
     {
-        if(mode == BoardMode.BoardWin)
+        if (mode == BoardMode.BoardWin)
         {
             //todo
 

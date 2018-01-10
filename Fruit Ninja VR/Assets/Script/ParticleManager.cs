@@ -9,20 +9,27 @@ public class ParticleManager : MonoBehaviour
     public ParticleSystem parFruitHitFloor;
     public ParticleSystem parBoomHitFloor;
     public ParticleSystem parSwordHitBoom;
+    public ParticleSystem parSpawningFruit;
+    public ParticleSystem parHalfFruitHitFloor;
+
 
     public static ParticleManager Instance;
 
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
         {
             Instance = this;
         }
-        else if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
+    }
+
+    // Use this for initialization
+    void Start()
+    {       
     }
 
 
@@ -32,5 +39,13 @@ public class ParticleManager : MonoBehaviour
         particleSystem.Play();
     }
 
-    
+    public void PlayParticleOn(Vector3 position, ParticleSystem particle, Quaternion rotation)
+    {
+        ParticleSystem particleSystem = Instantiate(particle, position, rotation);
+        particleSystem.Play();
+    }
+
+
+
+
 }
