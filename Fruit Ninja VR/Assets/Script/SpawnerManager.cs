@@ -26,8 +26,10 @@ public class SpawnerManager : MonoBehaviour
     }
 
 
-    public void Spawn()
+    public void Spawn(Level currentLevel)
     {
+
+
         // get random fruit to spawn
         int random = Random.Range(0, fruitPrefabs.Count);
         GameObject prefabToSpawn = fruitPrefabs[random];

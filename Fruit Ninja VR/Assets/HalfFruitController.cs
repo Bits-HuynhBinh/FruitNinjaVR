@@ -7,10 +7,9 @@ using UnityEngine;
 // 2 halfs fall down the floor based on gravity
 // 2 half separated each other a bit
 // play particle system when 2 halfs touch the floor
-// destroy when on the floow
+// destroy when on the floor
 public class HalfFruitController : MonoBehaviour
 {
-
     public enum HalfMode { HalfLeft, HalfRight };
 
     public HalfMode halfMode;

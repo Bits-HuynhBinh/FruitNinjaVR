@@ -65,6 +65,8 @@ public class GameManager : MonoBehaviour
             ResetCurrentLevel();
         }
 
+        SpawnerManager.Instance.Spawn(currentLevel);
+
     }
 
 
