@@ -575,6 +575,7 @@ MonoBehaviour:
   - {fileID: 1356599774468994, guid: cbc1525f881c7da4aad089b380fffe1c, type: 2}
   - {fileID: 1356599774468994, guid: cbc1525f881c7da4aad089b380fffe1c, type: 2}
   - {fileID: 1356599774468994, guid: cbc1525f881c7da4aad089b380fffe1c, type: 2}
+  boomPrefabs: []
   minForceY: 100
   maxForceY: 200
 --- !u!4 &1127307258
@@ -644,6 +645,7 @@ MonoBehaviour:
     type: 2}
   parSpawningFruit: {fileID: 198586131180584836, guid: 753106ce2cd3c314ea9bea05a0bc2e9d,
     type: 2}
+  parSpawningBoom: {fileID: 0}
   parHalfFruitHitFloor: {fileID: 198586131180584836, guid: 753106ce2cd3c314ea9bea05a0bc2e9d,
     type: 2}
 --- !u!1 &1186799664
@@ -947,6 +949,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1879402175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1879402177}
+  - component: {fileID: 1879402176}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1879402176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879402175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211d921145824c4429c9e7c7e6e0625f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1879402177
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879402175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940955469
 GameObject:

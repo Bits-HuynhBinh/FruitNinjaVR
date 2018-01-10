@@ -27,7 +27,8 @@ public class FruitController : MonoBehaviour
         if (other.gameObject.CompareTag(Tags.tagFloor))
         {
             // minus 1 point
-            GameManager.Instance.decreaseLife();
+            //GameManager.Instance.decreaseLife();
+            PlayerManager.Instance.decreaseLife();
 
             // play particle system on the floor to show that the fruit is destroy
             ParticleManager.Instance.PlayParticleOn(transform.position, ParticleManager.Instance.parFruitHitFloor);
@@ -49,7 +50,8 @@ public class FruitController : MonoBehaviour
             SoundManager.Instance.PlaySoundOneShotOnObject(GetComponent<AudioSource>(), SoundManager.Instance.clipSwordHitFruitSound);
 
             // increase point
-            GameManager.Instance.increasePoint();
+            //GameManager.Instance.increasePoint();
+            PlayerManager.Instance.increasePoint();
         }
 
         // if fruit collide with player, it is an error, destroy the fruit, dont count it

@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    private int userPoint;
-    private int userLife;
     [HideInInspector]
     public Level currentLevel = null;
 
-    private enum BoardMode { BoardWin, BoardLoose };
+    [HideInInspector]
+    public PlayerInfo playerInfo;
+
+    [HideInInspector]
+    public enum BoardMode { BoardWin, BoardLoose };
 
     void Awake()
     {
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
             SetNextLevel(nextLevel);
         }
 
-        if (userLife <= 0)
+        if (playerInfo.userLife <= 0)
         {
             // loose game
             // play loose sound
@@ -110,15 +112,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void increasePoint()
-    {
-        userPoint++;
-    }
+    //public void increasePoint()
+    //{
+    //    userPoint++;
+    //}
 
-    public void decreaseLife()
-    {
-        userLife--;
-    }
+    //public void decreaseLife()
+    //{
+    //    userLife--;
+    //}
 
     public void ResetCurrentLevel()
     {
