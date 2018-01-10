@@ -10,6 +10,7 @@ public class ParticleManager : MonoBehaviour
     public ParticleSystem parBoomHitFloor;
     public ParticleSystem parSwordHitBoom;
     public ParticleSystem parSpawningFruit;
+    public ParticleSystem parSpawningBoom;
     public ParticleSystem parHalfFruitHitFloor;
 
 

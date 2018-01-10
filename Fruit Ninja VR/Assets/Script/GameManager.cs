@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 
     private int userPoint;
     private int userLife;
-    private Level currentLevel = null;
+    [HideInInspector]
+    public Level currentLevel = null;
 
     private enum BoardMode { BoardWin, BoardLoose };
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SetupFirstLevel();
+        SetupBoomInterval();
     }
 
     // Update is called once per frame
@@ -65,8 +67,25 @@ public class GameManager : MonoBehaviour
             ResetCurrentLevel();
         }
 
-        SpawnerManager.Instance.Spawn(currentLevel);
+        SpawnerManager.Instance.SpawnFruit(currentLevel);
+        SpawnBoom();
+    }
 
+    private void SpawnBoom()
+    {
+        currentLevel.currentIntervalForSpawningBoom -= Time.deltaTime;
+        if (currentLevel.currentIntervalForSpawningBoom <= 0)
+        {
+            SpawnerManager.Instance.SpawnBoom(currentLevel);
+
+            // reset the time interval
+            SetupBoomInterval();
+        }
+    }
+
+    private void SetupBoomInterval()
+    {
+        currentLevel.currentIntervalForSpawningBoom = Random.Range(currentLevel.minRandomIntervalForSpawningBoom, currentLevel.maxRandomIntervalForSpawningBoom);
     }
 
 
